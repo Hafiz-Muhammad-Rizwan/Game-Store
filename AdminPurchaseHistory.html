@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase History - HAZ Game Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse the same styles from ManageUsers.html */
+        body {
+            background: #000428;
+            background: linear-gradient(to right, #000428, #004e92);
+            color: #fff;
+            min-height: 100vh;
+            padding-top: 80px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(135deg, #000428, #004e92);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .navbar {
+            padding: 15px 0;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(to right, #00c4b4, #005f76);
+            border-radius: 8px;
+            padding: 5px 10px;
+            color: #fff !important;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+                        0 0 40px rgba(0, 255, 255, 0.5),
+                        0 0 60px rgba(0, 255, 255, 0.3) !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .admin-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ff6b6b, #ffe66d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+        }
+
+        .table {
+            background: #2c3e50;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+        }
+
+        .table thead {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+        }
+
+        .table th,
+        .table td {
+            color: black;
+            vertical-align: middle;
+            border: none;
+            padding: 15px;
+        }
+
+        .table tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        .table tbody tr:hover {
+            background: rgba(255, 107, 107, 0.2);
+        }
+
+        .btn-bounce {
+            transition: transform 0.2s ease;
+        }
+
+        .btn-bounce:hover {
+            transform: scale(1.1);
+        }
+
+        .filter-section {
+            background: #2c3e50;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .filter-section input,
+        .filter-section select {
+            background: #34495e;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .filter-section input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .search-bar {
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+
+        .search-bar input {
+            background: #34495e;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+        .search-bar input::placeholder {
+            color: #bdc3c7;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            background: #2c3e50;
+            border-radius: 15px;
+            border: 2px solid #ff6b6b;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            border-bottom: none;
+            color: #fff;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-title {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .modal-body {
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .modal-footer {
+            border-top: none;
+            justify-content: center;
+        }
+
+        .btn-confirm {
+            background: linear-gradient(to right, #ff4e50, #f9d423);
+            color: white;
+            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-confirm:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+        }
+
+        .btn-cancel {
+            background: linear-gradient(to right, #6b7280, #9ca3af);
+            color: white;
+            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-cancel:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(107, 114, 128, 0.7);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                gap: 15px;
+            }
+            .table {
+                font-size: 0.9rem;
+            }
+            .modal-dialog {
+                margin: 1rem;
+            }
+            .filter-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbar-collapse-toggle" aria-controls="navbar-collapse-toggle"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbar-collapse-toggle">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="AdminHome.html">Dash Board</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AddProduct.html">Add Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="UpdateProduct.html">Update Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AdminUserInformation.html">Manage User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="PurchaseHistory.html">Purchase History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="LoginPageHtml.html">log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container px-4 py-5">
+        <div class="admin-section text-center mb-5">
+            <h1 class="section-title">Purchase History</h1>
+            <p>View and manage purchase records for the HAZ Game Store.</p>
+        </div>
+
+        <!-- Filter and Search Section -->
+        <div class="filter-section">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <input type="date" id="startDate" class="form-control" placeholder="Start Date">
+                </div>
+                <div class="col-md-3">
+                    <input type="date" id="endDate" class="form-control" placeholder="End Date">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="gameTitle" class="form-control" placeholder="Game Title">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="userEmail" class="form-control" placeholder="User Email">
+                </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-confirm btn-bounce" onclick="applyFilters()">Apply Filters</button>
+                    <button class="btn btn-cancel btn-bounce" onclick="resetFilters()">Reset Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by Game Title or User Email..." oninput="searchPurchases()">
+        </div>
+
+        <!-- Purchase History Table -->
+        <div id="purchase-history" class="admin-section">
+            <h2 class="section-title">Purchase Records</h2>
+            <div id="purchase-table-error" class="text-danger text-center mb-3"></div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Purchase ID</th>
+                            <th>User Name / Email</th>
+                            <th>Game Purchased</th>
+                            <th>Purchase Date</th>
+                            <th>Price Paid</th>
+                            <th>Payment Method</th>
+                        </tr>
+                    </thead>
+                    <tbody id="purchase-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        async function fetchAndRenderPurchases(filters = {}) {
+            console.log('Fetching purchases with filters:', filters);
+            const errorContainer = document.getElementById('purchase-table-error');
+            const tbody = document.getElementById('purchase-table-body');
+
+            if (!tbody) {
+                console.error('Error: <tbody id="purchase-table-body"> not found in DOM');
+                if (errorContainer) {
+                    errorContainer.textContent = 'Error: Table not found. Please check the page structure.';
+                }
+                return;
+            }
+
+            try {
+                const queryParams = new URLSearchParams(filters).toString();
+                const response = await fetch(`http://localhost:3000/Purchase-History?${queryParams}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const purchases = await response.json();
+                console.log('Purchases fetched:', purchases);
+
+                tbody.innerHTML = '';
+                if (errorContainer) {
+                    errorContainer.textContent = '';
+                }
+
+                if (purchases.length === 0) {
+                    console.warn('No purchases found');
+                    tbody.innerHTML = '<tr><td colspan="6" class="text-center">No purchase records available</td></tr>';
+                    return;
+                }
+
+                purchases.forEach(purchase => {
+                    console.log('Rendering purchase:', purchase);
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${purchase.Purchase_Id}</td>
+                        <td>${purchase.User_Name || 'N/A'} (${purchase.User_Email})</td>
+                        <td>${purchase.Item_Name || 'N/A'}</td>
+                        <td>${new Date(purchase.Purchase_Date).toLocaleString()}</td>
+                        <td>$${parseFloat(purchase.Amount).toFixed(2)}</td>
+                        <td>${purchase.Payment_Method || 'N/A'}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Error fetching purchases:', error.message);
+                if (tbody) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="text-danger text-center">Failed to load purchases. Please try again later.</td></tr>';
+                }
+                if (errorContainer) {
+                    errorContainer.textContent = 'Failed to load purchases. Please check the server connection.';
+                }
+            }
+        }
+
+        function applyFilters() {
+            const filters = {};
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const gameTitle = document.getElementById('gameTitle').value.trim();
+            const userEmail = document.getElementById('userEmail').value.trim();
+
+            if (startDate) filters.startDate = startDate;
+            if (endDate) filters.endDate = endDate;
+            if (gameTitle) filters.gameTitle = gameTitle;
+            if (userEmail) filters.userEmail = userEmail;
+
+            fetchAndRenderPurchases(filters);
+        }
+
+        function resetFilters() {
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+            document.getElementById('gameTitle').value = '';
+            document.getElementById('userEmail').value = '';
+            document.getElementById('searchInput').value = '';
+            fetchAndRenderPurchases();
+        }
+
+        function searchPurchases() {
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            const filters = {};
+
+            if (searchTerm) {
+                filters.searchTerm = searchTerm;
+            }
+
+            fetchAndRenderPurchases(filters);
+        }
+
+        // Fetch purchases on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, fetching purchases');
+            fetchAndRenderPurchases();
+        });
+    </script>
+</body>
+</html>

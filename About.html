@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | GameVault</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/abouts/about-5/assets/css/about-5.css">
+    <link href="About.css" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts for Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .feature-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.05);
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-brand {
+            color: #f0c808;
+            /* Yellow color for versatile brand */
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-agency {
+            color: #f0c808;
+            /* Yellow color for digital agency */
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .icon-gear {
+            color: #4d9de0;
+            /* Blue color for gear icon */
+            font-size: 2rem;
+        }
+
+        .icon-fire {
+            color: #ff7750;
+            /* Orange-red color for fire icon */
+            font-size: 2rem;
+        }
+
+        .feature-text {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-section {
+            padding: 3rem 0;
+        }
+
+        .intro-section {
+            padding: 3rem 0;
+        }
+
+        .section-heading {
+            margin-bottom: 2rem;
+        }
+
+        .header-image {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-us-heading {
+            /* Changed from absolute positioning to a more predictable centered layout */
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin: 1.5rem 0;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #f0c808;
+            width: 100%;
+        }
+
+        /* Add a container for the header */
+        .header-container {
+            padding-top: 1.5rem;
+        }
+
+       
+        .feature-content img.main-image {
+            width: 100%;
+            height: 250px;
+            
+            object-fit: cover;
+            
+            object-position: center;
+           
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        
+        .feature-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+       
+        .feature-content p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(135deg, #000428, #004e92);
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+        }
+
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            background: linear-gradient(to right, #00c4b4, #005f76);
+            /* gradient */
+            border-radius: 8px;
+            /* optional: make corners rounded */
+            padding: 5px 10px;
+            /* optional: add some spacing */
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+
+                0 0 40px rgba(0, 255, 255, 0.5),
+
+                0 0 60px rgba(0, 255, 255, 0.3) !important;
+
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbar-collapse-toggle" aria-controls="navbar-collapse-toggle"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbar-collapse-toggle">
+                    <ul class="navbar-nav">
+                        <li id="menu-item-244"
+                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-244 nav-item active">
+                            <a title="Home" class="nav-link" href="DBProjectHtmlFile.html"><span>Home</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Prductspage.html">Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="LoginPageHtml.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="SignupPagehtml.html">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AddtoCart.html">
+                                <i class="fas fa-shopping-cart"></i> Cart
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Header Container for About Heading -->
+    <div class="container header-container" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-12">
+                <!-- About Us Heading - Now centered at top -->
+                <h2 class="about-us-heading">About GameVault</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section - Main Intro -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                    <h2 class="mb-3">Level Up Your Gaming Experience</h2>
+                    <p class="lead fs-4 text-secondary mb-3">We're passionate gamers dedicated to bringing you the
+                        ultimate gaming marketplace. From rare collectibles to the latest releases, we've got everything
+                        you need to elevate your gaming journey.</p>
+                    <p class="mb-5">Founded by a team of hardcore gaming enthusiasts, GameVault has grown from a small
+                        indie shop to a premier gaming destination. We believe in fair pricing, authentic products, and
+                        creating a community where gamers of all types feel welcome. Our mission is to make gaming
+                        accessible, exciting, and rewarding for everyone.</p>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <img src="Game 23.jpeg" alt="Gaming Setup" class="main-image rounded" data-aos="zoom-in">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-6 mb-5">
+                   
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class='bx bx-joystick icon-gear me-2'></i>
+                        <h3 class="feature-brand">Game Selection</h3>
+                    </div>
+
+                   
+                    <div class="feature-content">
+                        <p class="mb-4">Curating an extensive library of games across all platforms, from retro classics
+                            to cutting-edge titles. We specialize in hard-to-find editions and exclusive collector's
+                            items.</p>
+                        <img src="Game5.jpg" alt="Game Collection" class="main-image rounded" data-aos="flip-left"
+                            data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+                    </div>
+                </div>
+
+                <!-- Gaming Community Column -->
+                <div class="col-md-6 mb-5">
+                    <!-- Feature Header with Icon -->
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class='bx bx-trophy icon-fire me-2'></i>
+                        <h3 class="feature-agency">Gaming Community</h3>
+                    </div>
+
+                    <!-- Feature description -->
+                    <div class="feature-content">
+                        <p class="mb-4">Building more than just a store - we're creating a thriving ecosystem for gamers
+                            to connect, compete, and collaborate through tournaments, events, and online forums.</p>
+                        <img src="DB Project.jpg" alt="Gaming Community" class="main-image rounded"
+                            data-aos="fade-zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <h2 class="about-us-heading">FIND US At HERE</h2>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <!-- Social media icons with Bootstrap styling -->
+                <div class="d-flex justify-content-center gap-4">
+                    <a href="https://linkedin.com/in/your-profile" class="btn btn-outline-primary rounded-circle p-3"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <i class='bx bxl-linkedin-square fs-1'></i>
+                    </a>
+                    <a href="https://github.com/your-profile" class="btn btn-outline-dark rounded-circle p-3"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <i class='bx bxl-github fs-1'></i>
+                    </a>
+                    <a href="https://instagram.com/your-profile" class="btn btn-outline-danger rounded-circle p-3"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <i class='bx bxl-instagram fs-1'></i>
+                    </a>
+                    <a href="https://facebook.com/your-profile" class="btn btn-outline-primary rounded-circle p-3"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <i class='bx bxl-facebook fs-1'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="DBProjectJavascript.js"></script>
+</body>
+
+</html>

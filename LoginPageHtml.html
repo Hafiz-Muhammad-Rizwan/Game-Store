@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+       
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow-x: hidden;
+            padding-top: 70px; /* Prevent content from being hidden under the navbar */
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(135deg, #000428, #004e92);
+            border-radius: 0 0 20px 20px;
+            overflow: hidden; 
+        }
+
+         .navbar {
+            padding-top: 15px;
+    padding-bottom: 15px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            background: linear-gradient(to right, #00c4b4, #005f76);
+            /* gradient */
+            border-radius: 8px;
+            /* optional: make corners rounded */
+            padding: 5px 10px;
+            /* optional: add some spacing */
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+
+                0 0 40px rgba(0, 255, 255, 0.5),
+
+                0 0 60px rgba(0, 255, 255, 0.3) !important;
+
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: white;
+            cursor: pointer;
+        }
+
+
+        .login-container {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.5),
+                0 0 60px rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(0, 255, 255, 0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: scale(1.03);
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .form-label {
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .form-control {
+            background: white;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color:black;
+            transition: border 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: white;
+            border-color: #00f2ff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            color:black;
+        }
+
+        .btn-login {
+            background: #00f2ff;
+            color: #1a1a1a;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            transition: background 0.3s ease, color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-login:hover {
+            background: #fff;
+            color: #00f2ff;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .forgot-password a {
+            color: #00f2ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 576px) {
+            .login-container {
+                padding: 1.5rem;
+                max-width: 90%;
+            }
+
+            .login-title {
+                font-size: 1.5rem;
+            }
+
+            .form-label {
+                font-size: 0.9rem;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+            }
+
+            .btn-login {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .forgot-password a {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .login-container {
+                padding: 1rem;
+                max-width: 95%;
+            }
+
+            .login-title {
+                font-size: 1.3rem;
+            }
+
+            .form-label {
+                font-size: 0.85rem;
+            }
+
+            .form-control {
+                font-size: 0.85rem;
+            }
+
+            .btn-login {
+                padding: 6px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbar-collapse-toggle" aria-controls="navbar-collapse-toggle"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbar-collapse-toggle">
+                    <ul class="navbar-nav">
+                       
+                       
+                       <li id="menu-item-244"
+              class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-244 nav-item active">
+              <a title="Home" class="nav-link" href="DBProjectHtmlFile.html"><span>Home</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Prductspage.html">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="About.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="LoginPageHtml.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="SignupPagehtml.html">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AddtoCart.html">
+                <i class="fas fa-shopping-cart"></i> Cart
+              </a>
+            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2 class="login-title">Login</h2>
+        <form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="button" class="btn btn-login"  onclick="loginUser()">Sign In</button>
+            <div class="forgot-password">
+                <a href="TakeEmailForgotPassword.html">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <script src="DBProjectJavascript.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92);
+
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navbar */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #000428, #004e92);
+            transition: background 0.3s ease;
+            border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+            overflow: hidden; 
+        }
+
+        .main-header.sticky {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #000428, #004e92);
+            /* Solid color for contrast */
+        }
+
+        .navbar {
+            padding-top: 15px;
+    padding-bottom: 15px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            background: linear-gradient(to right, #00c4b4, #005f76);
+            /* gradient */
+            border-radius: 8px;
+            /* optional: make corners rounded */
+            padding: 5px 10px;
+            /* optional: add some spacing */
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+
+                0 0 40px rgba(0, 255, 255, 0.5),
+
+                0 0 60px rgba(0, 255, 255, 0.3) !important;
+
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: white;
+            cursor: pointer;
+        }
+
+        
+
+        /* Download CV Button in Navbar */
+        
+
+      
+
+        /* Hero Section */
+       
+
+       
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+              background: linear-gradient(135deg, #000428, #004e92);
+                padding: 15px;
+                border-radius: 5px;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+          
+
+          
+        }
+
+        @media (max-width: 767px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .HomeSection{
+            min-height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px;
+            justify-content: flex-start;
+        }
+        
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .card {
+            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+          
+
+            background: linear-gradient(to right, #41295a, #2f0743);
+
+            color: white;
+        }
+        .card:hover{
+            border: 3px solid rgba(0, 255, 255, 0.7);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+
+            0 0 40px rgba(0, 255, 255, 0.5),
+
+            0 0 60px rgba(0, 255, 255, 0.3) !important;
+        }
+        
+        .card-body {
+            padding: 15px;
+        }
+        
+        .discount-price {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .contact-btn {
+            background: #00C4B4;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #fff;
+            color: #00C4B4;
+        }
+
+        .contact-btn::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url('https://via.placeholder.com/20x20/FFFFFF/FFFFFF') no-repeat center;
+            background-size: cover;
+        }
+          
+          .center-content {
+            flex: 1;
+            text-align: center;
+          }
+          
+          .welcome-text {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: bold;
+          }
+           
+          
+          
+          .card-video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+          }
+
+        
+          .center-content {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+          }
+
+          .welcome-card {
+            width: 30vw; /* Responsive width */
+            height: 40vh; /* Responsive height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a1a;
+            border-radius: 10px;
+            border: 3px solid rgba(0, 255, 255, 0.7);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+
+            0 0 40px rgba(0, 255, 255, 0.5),
+
+            0 0 60px rgba(0, 255, 255, 0.3) !important; /* Glowing effect */
+          }
+
+          .welcome-card.rotating-logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+          }
+
+          .welcome-text {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+          }
+
+
+          .rotating-logo {
+            max-width: 50%; /* Ensure the logo scales within the card */
+            height: auto;
+            animation: rotate 10s infinite linear;
+          }
+      
+          /* Rotation animation for the logo */
+          @keyframes rotate {
+            from {
+              transform: rotateY(0deg);
+            }
+            to {
+              transform: rotateY(360deg);
+            }
+          }
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+            .content-layout {
+              flex-direction: column;
+              align-items: center;
+            }
+      
+            .left-column {
+              width: 100%;
+              align-items: center;
+            }
+      
+            .center-content {
+              width: 100%;
+              margin-top: 20px;
+            }
+      
+            .welcome-card {
+              width: 80vw; /* Wider on smaller screens */
+              height: 30vh; /* Shorter height on smaller screens */
+            }
+      
+            .welcome-text {
+              font-size: 1.5rem; /* Smaller font size on mobile */
+            }
+      
+            .rotating-logo {
+                width: 60vw;
+                max-width: 400px; /* set an upper limit */
+                height: auto;
+            }
+          }
+
+         
+
+         
+        
+          
+        
+          .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+          }
+        
+          .card-video {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+          }
+        
+          .card-body {
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+          }
+        
+          .card-title {
+            color: white;
+            margin-bottom: 10px;
+          }
+        
+          .card-text {
+            color: #ccc;
+            margin-bottom: 10px;
+          }
+        
+          .discount-price {
+            color: #00f2ff;
+            font-weight: bold;
+          }
+        
+          .contact-btn {
+            background: #00f2ff;
+            color: #1a1a1a;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+          }
+
+

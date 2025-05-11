@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Game-Store</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+    href="https://hafiz-muhammad-rizwan.github.io/Portfolio/bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/css/bootstrap.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Fonts for Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="DBProjectCSSFile.css">
+  <style>
+    .main-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #000428, #004e92);
+      border-radius: 0 0 20px 20px;
+      overflow: hidden;
+    }
+
+    .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: white;
+      background: linear-gradient(to right, #00c4b4, #005f76);
+      border-radius: 8px;
+      padding: 5px 10px;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+        0 0 40px rgba(0, 255, 255, 0.5),
+        0 0 60px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .navbar-toggler {
+      border: none;
+      background: white;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header class="main-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-toggle"
+          aria-controls="navbar-collapse-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbar-collapse-toggle">
+          <ul class="navbar-nav">
+            <li id="menu-item-244"
+              class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-244 nav-item active">
+              <a title="Home" class="nav-link" href="DBProjectHtmlFile.html"><span>Home</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Prductspage.html">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="About.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="LoginPageHtml.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="SignupPagehtml.html">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AddtoCart.html">
+                <i class="fas fa-shopping-cart"></i> Cart
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="HomeSection">
+    <div class="content-layout" style="display: flex; gap: 20px;">
+      <!-- Left Side Cards -->
+      <div class="left-column">
+        <!-- Card 1 -->
+        <div class="card">
+          <video class="card-video" autoplay muted loop playsinline>
+            <source src="video2.mp4" type="video/mp4">
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Taken 4</h5>
+            <p class="card-text">Now only <span class="discount-price">$19.99</span> (50% OFF)</p>
+            <a href="#" class="contact-btn">Buy Now</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card">
+          <video class="card-video" autoplay muted loop playsinline>
+            <source src="Goku Super Saiyan 4 ❤️_🔥🔥 - Dragon Ball Daima「AMV_EDIT」4K.mp4" type="video/mp4">
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Dragon Ball</h5>
+            <p class="card-text">Now only <span class="discount-price">$14.99</span> (30% OFF)</p>
+            <a href="#" class="contact-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="center-column" style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+      <!-- Welcome Card -->
+      <div class="center-content">
+        <div class="card welcome-card" style="width: 600px;">
+          <div class="card-body">
+            <h2 class="welcome-text">Welcome <span id="my-typer"></span></h2>
+            <img src="vr-glasses-gaming-removebg-preview.png" alt="Game Logo" class="rotating-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="left-column">
+      <!-- Card 1 -->
+      <div class="card">
+        <video class="card-video" autoplay muted loop playsinline>
+          <source src="video2.mp4" type="video/mp4">
+        </video>
+        <div class="card-body">
+          <h5 class="card-title">Taken 4</h5>
+          <p class="card-text">Now only <span class="discount-price">$19.99</span> (50% OFF)</p>
+          <a href="#" class="contact-btn">Buy Now</a>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card">
+        <video class="card-video" autoplay muted loop playsinline>
+          <source src="Goku Super Saiyan 4 ❤️_🔥🔥 - Dragon Ball Daima「AMV_EDIT」4K.mp4" type="video/mp4">
+        </video>
+        <div class="card-body">
+          <h5 class="card-title">Dragon Ball</h5>
+          <p class="card-text">Now only <span class="discount-price">$14.99</span> (30% OFF)</p>
+          <a href="#" class="contact-btn">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script
+    src="https://hafiz-muhammad-rizwan.github.io/Portfolio/bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+ 
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="DBProjectJavascript.js"></script>
+</body>
+
+</html>
