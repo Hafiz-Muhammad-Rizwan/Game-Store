@@ -761,7 +761,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// Step: Start the server
-app.listen(3000, () => {
-  console.log("Server started on http://localhost:3000");
-});
+
